@@ -32,7 +32,7 @@
                 <li><a href="/services">Services</a></li>
                 <li><a href="/about-us">About Us</a></li>
                 <li><a href="/blog">Blog</a></li>
-                <li><a href="/sign-up">Sign Up</a></li>
+                <li><a href="/register"> Sign Up </a></li>
                 <li><a href="/login">Log In</a></li>
             </ul>
         </nav>
@@ -322,9 +322,9 @@
 
     <!-- 7 section Blog Post DONE-->
 
-    <section class="section7">
-        <div class="section7-blok1">
-            <div class="section7-title-text">
+    <div class="blog">
+        <div class="blog-blok1">
+            <div class="blog-title-text">
                 <p>latest</p>
                 <h2>Discover the Latest Blogs</h2>
                 <p>Stay updated with our informative blog posts.</p>
@@ -334,10 +334,10 @@
             </div>
         </div>
 
-        <div class="section7-blok2">
-            <div class="section7-articles">
+        <div class="blog-blok2">
+            <div class="blog-articles">
                 <article>
-                    <img src="" alt="">
+                    <img src="" alt="image">
                     <p>category</p>
                     <p>5 min read</p>
                     <h3>Blog Post Title</h3>
@@ -346,9 +346,9 @@
                 </article>
             </div>
 
-            <div class="section7-articles">
+            <div class="blog-articles">
                 <article>
-                    <img src="" alt="">
+                    <img src="" alt="image">
                     <p>category</p>
                     <p>5 min read</p>
                     <h3>Blog Post Title</h3>
@@ -357,9 +357,9 @@
                 </article>
             </div>
 
-            <div class="section7-articles">
+            <div class="blog-articles">
                 <article>
-                    <img src="" alt="">
+                    <img src="" alt="image">
                     <p>category</p>
                     <p>5 min read</p>
                     <h3>Blog Post Title</h3>
@@ -369,13 +369,13 @@
             </div>
         </div>
 
-    </section>
+    </div>
 
 
-    <!--footer DONE-->
-    <footer>
-        <div class="footer-blok1">
-            <div class="footer-title-text">
+    <!--section8 DONE-->
+    <section class="section8">
+        <div class="section8-blok1">
+            <div class="section8-title-text">
                 <a href="/">
                     <img class="logos" src="assests/images/logosmalll.png" alt="logo">
                 </a>
@@ -384,6 +384,10 @@
                 <p><b>Contact</b></p>
                 <p> 1800 123 4567</p>
                 <p>info@scientificalanimation</p>
+
+            </div>
+
+            <div class="section8-blok2">
                 <!--social medias-->
                 <div class="social-media">
                     <ul>
@@ -396,17 +400,11 @@
                 </div>
             </div>
 
-            <div class="footer-blok2">
-                <div class="footer-articles">
+            <div class="section8-blok3">
+                <div class="section8-articles">
                     <article>
-                        <h3>Services</h3>
+
                         <ul>
-                            <li>Cellular and Molecular Animations</li>
-                            <li>Patient Education Animations</li>
-                            <li>Mechanism of Action (MOA) Animations</li>
-                            <li>Medical Device Animations</li>
-                            <li>Medical Presentations</li>
-                            <li>Medical Marketing</li>
 
                             <li>About Us</li>
                             <li>Blog</li>
@@ -417,22 +415,24 @@
                         </ul>
                     </article>
                 </div>
-
-                <hr>
-
-                <div class="footer-blok3">
-                    <div class="footer-articles1"></div>
-                    <article>
-
-                        <p>© 2023 ScientificalAnimation. All rights reserved.</p>
-
-                        <p>Privacy Policy</p>
-                        <p>Terms of Service</p>
-                        <p>Cookies Settings</p>
-
-                    </article>
-                </div>
             </div>
+    </section>
+    <hr>
+
+    <footer>
+        <div class="footer-blok">
+            <div class="footer-articles1">
+                <article>
+
+                    <p>© 2023 ScientificalAnimation. All rights reserved.</p>
+
+                    <p>Privacy Policy</p>
+                    <p>Terms of Service</p>
+                    <p>Cookies Settings</p>
+
+                </article>
+            </div>
+        </div>
     </footer>
 
 </body>
@@ -445,16 +445,16 @@
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
-                                                        <a href="{{ url('/dashboard') }}"
-                                                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                                                                                                                                        <a href="{{ url('/dashboard') }}"
+                                                                                                                                                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
 @else
     <a href="{{ route('login') }}"
-                                                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                                                            in</a>
+                                                                                                                                                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                                                                                                                                                            in</a>
 
-                                                        @if (Route::has('register'))
+                                                                                                                                                        @if (Route::has('register'))
     <a href="{{ route('register') }}"
-                                                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                                                                                                                                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
     @endif
                 @endauth
             </div>
