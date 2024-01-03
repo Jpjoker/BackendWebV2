@@ -12,12 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('content');
-            $table->integer('user_id')->unsigned();
-            $table->integer('news_item_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('news_item_id')->references('id')->on('news_items');
+            $table->id();
             $table->timestamps();
         });
     }
