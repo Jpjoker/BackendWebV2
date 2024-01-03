@@ -269,7 +269,9 @@
             <div class="section5-articles">
                 <article>
                     <!--reviews-->
-                    <img src="" alt="">
+                    <div class="costumer-foto">
+                        <img src="assests/images/costumerV3.png" alt="image">
+                    </div>
                     <p>"Working with this company has been a game changer."</p>
                     <h4> <b> John Doe</b></h4>
                     <h4>CEO, ABC Corp</h4>
@@ -280,7 +282,9 @@
             <div class="section5-articles">
                 <article>
                     <!--reviews foto-->
-                    <img src="" alt="">
+                    <div class="costumer-foto">
+                        <img src="assests/images/costumerV2.png" alt="image">
+                    </div>
                     <p>"Their attention to detail is unmatched."</p>
                     <h4> <b> Jane Smith</b></h4>
                     <h4>Marketing Manger, XYZ Corp</h4>
@@ -291,7 +295,9 @@
             <div class="section5-articles">
                 <article>
                     <!--reviews foto-->
-                    <img src="" alt="">
+                    <div class="costumer-foto">
+                        <img src="assests/images/costumerV4.png" alt="image">
+                    </div>
                     <p>"The results exceeded our expectations."</p>
                     <h4> <b>David Johnson</b></h4>
                     <h4>CTO, 123 Company</h4>
@@ -301,24 +307,6 @@
         </div>
 
     </section>
-
-    <!--six section Concept get in touch of our videos-->
-    <section class="section6">
-        <div class="section6-blok1">
-            <div class="section6-title-text">
-
-                <!--Img as background-->
-                <img src="" alt="">
-                <h2>Transforming Medical Concepts into Reality</h2>
-                <p>We specialize in creating stunning 3D medical animations that educate and engage audiences.</p>
-                <button>Contact</button>
-                <sign-up>Sign Up</sign-up>
-            </div>
-
-        </div>
-
-    </section>
-
 
     <!-- 7 section Blog Post DONE-->
 
@@ -337,7 +325,9 @@
         <div class="blog-blok2">
             <div class="blog-articles">
                 <article>
-                    <img src="" alt="image">
+                    <div class="blog-foto">
+                        <img src="assests/images/bloodcellV22.jpg" alt="image">
+                    </div>
                     <p>category</p>
                     <p>5 min read</p>
                     <h3>Blog Post Title</h3>
@@ -348,7 +338,9 @@
 
             <div class="blog-articles">
                 <article>
-                    <img src="" alt="image">
+                    <div class="blog-foto">
+                        <img src="assests/images/coronaV22.jpg" alt="image">
+                    </div>
                     <p>category</p>
                     <p>5 min read</p>
                     <h3>Blog Post Title</h3>
@@ -359,7 +351,9 @@
 
             <div class="blog-articles">
                 <article>
-                    <img src="" alt="image">
+                    <div class="blog-foto">
+                        <img src="assests/images/dnaV22.jpg" alt="image">
+                    </div>
                     <p>category</p>
                     <p>5 min read</p>
                     <h3>Blog Post Title</h3>
@@ -445,16 +439,16 @@
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
-                                                                                                                                                        <a href="{{ url('/dashboard') }}"
-                                                                                                                                                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                                                                                                                                                                                                                                            <a href="{{ url('/dashboard') }}"
+                                                                                                                                                                                                                                                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
 @else
     <a href="{{ route('login') }}"
-                                                                                                                                                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                                                                                                                                                            in</a>
+                                                                                                                                                                                                                                                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                                                                                                                                                                                                                                                                in</a>
 
-                                                                                                                                                        @if (Route::has('register'))
+                                                                                                                                                                                                                                                            @if (Route::has('register'))
     <a href="{{ route('register') }}"
-                                                                                                                                                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                                                                                                                                                                                                                                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
     @endif
                 @endauth
             </div>

@@ -105,3 +105,71 @@ Include a link to the GitHub repo in the "about" page.
 Submit a .zip file named bw_firstname_lastname_laravel.zip on Canvas.
 The zip file should exclude the 'vendor' folder.
 Include the link to the GitHub repo in the "about" page.
+
+##########################################################################
+
+#### My Database
+
+User
+/_ voor the email _/
+user*id INT Primary KEY auto_increment,
+username VARCHAR(30) NOT NULL Unique,
+Company VARCHAR(30) NOT NULL UNIQUE,
+Email VARCHAR(30) NOT NULL UNIQUE,
+Phone INTGER(10) NOT null UNIQUE,
+Password VARCHAR(30),
+/* hier onder is voor de dashboard _/
+Birthday int,
+foto-avatar BLOB or VARCHAR(MAX),
+Bio TXT,
+/_ Extra \_/
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+/_ User heeft een relatie met Blog One to many _/
+
+Blog
+blogid PRIMARY KEY AUTO_INCREMENT,
+title VARCHAR(255) NOT NULL,
+cover_image VARCHAR(255) NOT NULL,
+content TEXT NOT NULL,
+publishing_date DATE NOT NULL,
+
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+user_id INT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users(id)
+
+/_ Blog heeft een relatie met Table One to many _/
+
+Comments
+id INT PRIMARY KEY AUTO_INCREMENT,
+content TEXT NOT NULL,
+
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+user_id INT NOT NULL,
+news_item_id INT NOT NULL,
+FOREIGN KEY (user_ID) REFERENCES users(id),
+FOREIGN KEY (news_item_id) REFERENCES news_items(id)
+
+/_ user heeft eem relatie met faq_categories _/
+faq_categories
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(255) NOT NULL
+
+/_ faq_categories heeft een relatie met faq_questions _/
+faq_questions
+id int PRIMARY KEY AUTO_INCREMENT,
+question VARCHAR(255) NOT NULL,
+answer TEEXT NOT NULL,
+
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+FOREIGN KEY (faq_categories_id) REFERENCES
+faq_categories(id),
+user_id INT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users(id)
