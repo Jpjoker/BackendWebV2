@@ -38,6 +38,17 @@
         <!-- pagina content-->
         <div class="page-content">
 
+            @if (session()->has(succes))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true"> X </button>
+                    {{ session()->get('message') }}
+                </div>
+            @endif
+
+
             <h1 class="post_title">Add post</h1>
             <div>
 
