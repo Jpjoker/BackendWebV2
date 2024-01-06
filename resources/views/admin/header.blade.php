@@ -198,7 +198,7 @@
                 </div>
                 <!-- Log out               -->
                 <div class="list-inline-item logout">
-                    <form method="POST" action="{{ route('logout') }}">
+                    {{-- <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
                         <x-dropdown-link :href="route('logout')"
@@ -206,11 +206,11 @@
                                             this.closest('form').submit();">
                             <p style="color:white!important"> {{ __('Log Out') }} </p>
                         </x-dropdown-link>
-                    </form>
+                    </form> --}}
 
-                    {{-- <x-app-layout>
+                    <x-app-layout>
 
-                    </x-app-layout> --}}
+                    </x-app-layout>
                 </div>
             </div>
         </div>

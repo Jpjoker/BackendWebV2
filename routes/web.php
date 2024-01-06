@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,12 @@ use App\Http\Controllers\HomeController;
 // });
 
 Route::get('/', [HomeController::class, 'homepage'])->name('home');
+
+/*dit is om uw post nemen = GET en daarna te posten natuurlijk tegaan posten = POST */
+Route::get('/post_page', [AdminController::class, 'post_page'])->name('post_page');
+
+// Verander 'post_page' naar 'add_post'
+Route::post('/add_post', [AdminController::class, 'add_post'])->name('add_post');
 
 Route::get('/register', function () {
     return view('register');
