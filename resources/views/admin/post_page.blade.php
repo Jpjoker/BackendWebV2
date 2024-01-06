@@ -24,6 +24,10 @@
             font-weight: bold;
             color: white;
         }
+
+        body {
+            background-color: #1F1F1F;
+        }
     </style>
 </head>
 
@@ -36,52 +40,50 @@
         @include('admin.sidebar')
 
         <!-- pagina content-->
-        <div class="page-content">
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
 
-            @if (session()->has(succes))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-
-                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                        <span aria-hidden="true"> X </button>
-                    {{ session()->get('message') }}
-                </div>
-            @endif
-
-
-            <h1 class="post_title">Add post</h1>
-            <div>
-
-                <!--enctype="multipart/form-data" is nodig om een foto te uploaden thx copilot-->
-                <form action="{{ url('add_post') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <!--title in geven-->
-                    <div class="centerpost">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title" placeholder="Title">
-                    </div>
-                    <!--uw beschrijving-->
-                    <div class="centerpost">
-                        <label for="title">Description</label>
-                        <textarea name="description" id="" cols="30" rows="10"></textarea>
-                    </div>
-                    <!--foto in geven-->
-                    <div class="centerpost">
-                        <label for="title">Add image</label>
-                        <input type="file" name="image" id="image">
-                    </div>
-
-                    <div class="centerpost">
-                        <label for="title"></label>
-                        <input type="submit" class="button_primary">
-                    </div>
-                </form>
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                    <span aria-hidden="true"> x </span>
+                </button>
             </div>
+        @endif
+
+
+        <h1 class="post_title">Add post</h1>
+        <div>
+
+            <!--enctype="multipart/form-data" is nodig om een foto te uploaden thx copilot-->
+            <form action="{{ url('add_post') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <!--title in geven-->
+                <div class="centerpost">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Title">
+                </div>
+                <!--uw beschrijving-->
+                <div class="centerpost">
+                    <label for="title">Description</label>
+                    <textarea name="description" id="" cols="30" rows="10"></textarea>
+                </div>
+                <!--foto in geven-->
+                <div class="centerpost">
+                    <label for="title">Add image</label>
+                    <input type="file" name="image" id="image">
+                </div>
+
+                <div class="centerpost">
+                    <label for="title"></label>
+                    <input type="submit" class="button_primary">
+                </div>
+            </form>
         </div>
+    </div>
 
 
-        <!-- Page Footer-->
-        @include('admin.footer')
+    <!-- Page Footer-->
+    @include('admin.footer')
 </body>
 
 </html>
