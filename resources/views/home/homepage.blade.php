@@ -15,11 +15,6 @@
 <!-- Styles -->
 
 
-
-</head>
-
-
-
 <body>
 
     <!--NAVBAR/HEADER DONE-->
