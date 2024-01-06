@@ -70,7 +70,7 @@
                         <td>{{ $postblog->post_status }}</td>
                         <td>{{ $postblog->usertype }}</td>
 
-                        <td> <img class="img_showpost" src="postimage/{{ $postblog->image }}">
+                        <td> <img class="img_showpost" src="blogimages/{{ $postblog->image }}">
 
                         </td>
                     </tr>
