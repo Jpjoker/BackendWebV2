@@ -19,9 +19,9 @@
                 @endauth
 
         </ul>
-
+        @endif
     </nav>
-    @endif
+
     <a class="cta" href="/contact"><button>Contact</button></a>
 
 </header>
