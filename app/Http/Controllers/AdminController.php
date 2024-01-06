@@ -62,4 +62,11 @@ class AdminController extends Controller
         $postblogs = Postblog::all();
         return view('admin.show_post', compact('postblogs'));
     }
+
+    public function delete_post($id)
+    {
+        $postblog = Postblog::find($id);
+        $postblog->delete();
+        return redirect()->back()->with('success', 'Post deleted successfully.');
+    }
 }

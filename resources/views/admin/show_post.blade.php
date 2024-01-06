@@ -47,6 +47,16 @@
         @include('admin.sidebar')
 
         <div class="page-content">
+
+            @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true"> x </span>
+                    </button>
+                </div>
+            @endif
             <h1 class="title_showpost"> All Posts </h1>
 
             <table class="table_showpost">
@@ -58,6 +68,7 @@
                     <th>Post status</th>
                     <th>Usertype</th>
                     <th>Post image</th>
+                    <th>Delete</th>
 
                 </tr>
 
@@ -72,6 +83,11 @@
 
                         <td> <img class="img_showpost" src="blogimages/{{ $postblog->image }}">
 
+                        </td>
+
+                        <td>
+                            <a href="{{ url('delete_post/' . $postblog->id) }}" class="btn btn-danger"
+                                onclick="return confirm('You sure to delete this post?')">Delete</a>
                         </td>
                     </tr>
                 @endforeach

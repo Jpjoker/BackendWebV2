@@ -51,3 +51,5 @@ Route::post('/add_post', [AdminController::class, 'add_post'])->name('add_post')
 
 
 Route::get('/show_post', [AdminController::class, 'show_post'])->name('post_page');
+
+Route::get('/delete_post/{id}', [AdminController::class, 'delete_post'])->name('delete_post');
