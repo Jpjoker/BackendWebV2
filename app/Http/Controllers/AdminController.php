@@ -56,4 +56,10 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Post created successfully.');
     }
+
+    public function show_post()
+    {
+        $postblogs = Postblog::all();
+        return view('admin.show_post', compact('postblogs'));
+    }
 }

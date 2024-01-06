@@ -20,11 +20,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [HomeController::class, 'homepage'])->name('home');
 
-/*dit is om uw post nemen = GET en daarna te posten natuurlijk tegaan posten = POST */
-Route::get('/post_page', [AdminController::class, 'post_page'])->name('post_page');
 
-// Verander 'post_page' naar 'add_post'
-Route::post('/add_post', [AdminController::class, 'add_post'])->name('add_post');
 
 Route::get('/register', function () {
     return view('register');
@@ -46,3 +42,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+/*dit is om uw post nemen = GET en daarna te posten natuurlijk tegaan posten = POST */
+Route::get('/post_page', [AdminController::class, 'post_page'])->name('post_page');
+
+// Verander 'post_page' naar 'add_post'
+Route::post('/add_post', [AdminController::class, 'add_post'])->name('add_post');
+
+
+Route::get('/show_post', [AdminController::class, 'show_post'])->name('post_page');
