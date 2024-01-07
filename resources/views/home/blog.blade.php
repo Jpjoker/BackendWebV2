@@ -9,6 +9,21 @@
     </div>
 
     <div class="blog-blok2">
+        @foreach ($postblog as $postblogs)
+            <div class="blog-articles">
+                <article>
+                    <div class="blog-foto">
+                        <img src="/blogimages/{{ $postblogs->image }}">
+                    </div>
+                    <h4>{{ $postblogs->title }}</h4>
+
+                    <p>Post by <b>{{ $postblogs->name }}</b></p>
+                    <button>Read More</button>
+                </article>
+            </div>
+        @endforeach
+
+        <!--
         <div class="blog-articles">
             <article>
                 <div class="blog-foto">
@@ -48,5 +63,5 @@
             </article>
         </div>
     </div>
-
-</div>
+-->
+    </div>

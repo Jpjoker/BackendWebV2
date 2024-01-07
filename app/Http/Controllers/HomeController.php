@@ -7,16 +7,21 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
+
+use App\Models\Postblog;
 class HomeController extends Controller
 {
     public function index()
     {
         if(Auth::id())
         {
+            $postblog=Postblog::all();
+
+
             $usertype=Auth()->user()->usertype;
             if($usertype=='user')
             {
-                return view('home.homepage');
+                return view('home.homepage', compact('postblog'));
             }
             else if($usertype=='admin')
             {
@@ -39,6 +44,7 @@ class HomeController extends Controller
     */
     public function homepage()
     {
-        return view('home.homepage');
+        $postblog=Postblog::all();
+        return view('home.homepage', compact('postblog'));
     }
 }
