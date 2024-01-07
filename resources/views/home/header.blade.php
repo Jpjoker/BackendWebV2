@@ -1,12 +1,14 @@
 <header class="header-abso">
 
-    <img class="logo" src="assests/images/logosmalll.png" alt="logo">
+    <img class="logo" href="{{ url('/homepage') }}" src="assests/images/logosmalll.png" alt="logo">
 
     <nav>
         <ul class="nav_links">
-            <li><a href="/services">Services</a></li>
-            <li><a href="/about-us">About Us</a></li>
-            <li><a href="/blog">Blog</a></li>
+            <li><a href="{{ url('/homepage') }}">Home</a></li>
+            <li><a href="{{ url('/service') }}">Services</a></li>
+            <li><a href="{{ url('/about_us') }}">About Us</a></li>
+            <li><a href="{{ url('/blogpage') }}">Blog</a></li>
+            <li><a href="{{ url('/FAQ') }}">FAQ</a></li>
 
             @if (Route::has('login'))
                 @auth

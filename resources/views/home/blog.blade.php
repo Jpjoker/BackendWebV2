@@ -13,12 +13,14 @@
             <div class="blog-articles">
                 <article>
                     <div class="blog-foto">
-                        <img src="/blogimages/{{ $postblogs->image }}">
+                        <img style="margin-bottom: 20px; height: 200px" width="350px"
+                            src="{{ asset('blogimages/' . $postblogs->image) }}">
                     </div>
+                    
                     <h4>{{ $postblogs->title }}</h4>
 
                     <p>Post by <b>{{ $postblogs->name }}</b></p>
-                    <button>Read More</button>
+                    <a href="{{ url('post_details', $postblogs->id) }}"> <button>Read More </button> </a>
                 </article>
             </div>
         @endforeach
@@ -62,6 +64,7 @@
                 <button>Read More</button>
             </article>
         </div>
+        -->
     </div>
--->
-    </div>
+
+</div>

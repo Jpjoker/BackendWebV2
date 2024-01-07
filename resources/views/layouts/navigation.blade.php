@@ -34,6 +34,9 @@
                             <p style="color:white!important"> {{ __('Profile') }} </p>
                         </x-dropdown-link>
 
+                        <!--dit heb ik extra toegevoegde voor dashboard-->
+
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -43,6 +46,8 @@
                                                 this.closest('form').submit();">
                                 <p style="color:white!important"> {{ __('Log Out') }} </p>
                             </x-dropdown-link>
+
+
                         </form>
                     </x-slot>
                 </x-dropdown>

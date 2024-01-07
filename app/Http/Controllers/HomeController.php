@@ -47,4 +47,12 @@ class HomeController extends Controller
         $postblog=Postblog::all();
         return view('home.homepage', compact('postblog'));
     }
+
+    public function post_details($id)
+    {
+        $postblog=Postblog::find($id);
+        return view('home.post_details', compact('postblog'));
+    }
+    
+   
 }
