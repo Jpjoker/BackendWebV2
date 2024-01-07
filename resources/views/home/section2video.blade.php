@@ -12,7 +12,7 @@
 
             <div class="section2-video">
                 <video autoplay muted loop>
-                    <source src="assests/images/art.mp4" type="video/mp4">
+                    <source src="/assests/images/art.mp4" type="video/mp4">
                 </video>
 
             </div>
@@ -33,7 +33,7 @@
             <div class="section2-video">
 
                 <video autoplay muted loop>
-                    <source id="myvideo" src="assests/images/trip.mp4" type="video/mp4">
+                    <source id="myvideo" src="/assests/images/trip.mp4" type="video/mp4">
                 </video>
 
             </div>
@@ -55,7 +55,7 @@
             <div class="section2-video">
 
                 <video autoplay muted loop>
-                    <source id="myvideo" src="assests/images/art.mp4" type="video/mp4">
+                    <source id="myvideo" src="/assests/images/art.mp4" type="video/mp4">
                 </video>
 
             </div>

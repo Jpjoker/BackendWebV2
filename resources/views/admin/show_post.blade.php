@@ -69,6 +69,8 @@
                     <th>Usertype</th>
                     <th>Post image</th>
                     <th>Delete</th>
+                    <th>Edit</th>
+                    <th>Publishing date</th>
 
                 </tr>
 
@@ -89,6 +91,15 @@
                             <a href="{{ url('delete_post/' . $postblog->id) }}" class="btn btn-danger"
                                 onclick="return confirm('You sure to delete this post?')">Delete</a>
                         </td>
+
+                        <td>
+
+                            <a href="{{ url('edit_post/' . $postblog->id) }}" class="btn btn-primary">Edit</a>
+
+                        </td>
+                        <!--gepost op the Day it self ;P-->
+                        <td>{{ $postblog->created_at }}</td>
+
                     </tr>
                 @endforeach
 

@@ -5,8 +5,6 @@
             <h2>Discover the Latest Blogs</h2>
             <p>Stay updated with our informative blog posts.</p>
             <button>View all</button>
-
-
         </div>
     </div>
 
