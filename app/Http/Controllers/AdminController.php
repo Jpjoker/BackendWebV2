@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Postblog;
+use App\Models\Faq;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -119,4 +120,133 @@ class AdminController extends Controller
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Post updated successfully.');
     }
+    public function faq()
+    {
+        $faqs ['getRecord'] = Faq::all();
+        return view('admin.faq.list', $faqs);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
 }

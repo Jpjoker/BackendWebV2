@@ -22,6 +22,7 @@ class HomeController extends Controller
             if($usertype=='user')
             {
                 return view('home.homepage', compact('postblog'));
+                
             }
             else if($usertype=='admin')
             {
@@ -53,6 +54,19 @@ class HomeController extends Controller
         $postblog=Postblog::find($id);
         return view('home.post_details', compact('postblog'));
     }
+
+
+
+    public function aboutUs()
+    {
+        return view('home.aboutUs');
+    }
     
-   
+    public function blogpage()
+    {
+        $postblogs = Postblog::all();
+        return view('home.blogpage', compact('postblogs'));
+    }
+
+       
 }

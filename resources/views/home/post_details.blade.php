@@ -47,6 +47,7 @@
         </article>
     </div>
 
+
     <!--section8 DONE-->
     @include('home.footer')
 </body>

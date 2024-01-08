@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,8 +23,9 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [HomeController::class, 'homepage'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
 Route::get('/post_details/{id}', [HomeController::class, 'post_details'])->name('post_details');
-
 Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
+Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs');
+
 
 /*bug heres*/ 
 Route::get('/blogpage', [HomeController::class, 'blogpage'])->name('blogpage')->middleware('auth');
@@ -57,6 +59,7 @@ Route::get('/show_post', [AdminController::class, 'show_post'])->name('post_page
 Route::get('/delete_post/{id}', [AdminController::class, 'delete_post'])->name('delete_post');
 Route::get('/edit_post/{id}', [AdminController::class, 'edit_post'])->name('edit_post');
 Route::post('/update_post/{id}', [AdminController::class, 'update_post'])->name('update_post');
-
-
 // Route::get('/adminhome', 'AdminController@home')->name('admin.adminhome');
+//FAQ
+Route::get('admin/faq', [AdminController::class, 'faq'])->name('faq');
+

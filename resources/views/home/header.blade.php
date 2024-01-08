@@ -6,7 +6,7 @@
         <ul class="nav_links">
             <li><a href="{{ url('/homepage') }}">Home</a></li>
             <li><a href="{{ url('/service') }}">Services</a></li>
-            <li><a href="{{ url('/about_us') }}">About Us</a></li>
+            <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
             <li><a href="{{ url('/blogpage') }}">Blog</a></li>
             <li><a href="{{ url('/FAQ') }}">FAQ</a></li>
 
