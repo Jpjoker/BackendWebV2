@@ -15,7 +15,9 @@
         <li><a href="{{ url('post_page') }}"> <i class="icon-grid"></i>Add Post </a></li>
         <li><a href="{{ url('/show_post') }}"> <i class="fa fa-bar-chart"></i>Show Post </a></li>
         <li><a href="{{ url('/admin/faq') }}" class="{{ Request::segment(2) == 'faq' ? 'active' : '' }}"> <i
-                    class="icon-padnote"></i>FAQ</a></li>
+                    class="icon-padnote"></i> Add FAQ</a></li>
+        <li><a href="{{ url('/admin/faq') }}" class="{{ Request::segment(2) == 'faq' ? 'active' : '' }}"> <i
+                    class="icon-writing-whiteboard"></i> Show FAQ</a></li>
         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i
                     class="icon-windows"></i>Example dropdown </a>
             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">

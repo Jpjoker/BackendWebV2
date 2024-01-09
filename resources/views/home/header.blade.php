@@ -24,6 +24,6 @@
         @endif
     </nav>
 
-    <a class="cta" href="/contact"><button>Contact</button></a>
+    <a class="cta" href="{{ url('/contactpage') }}"><button>Contact</button></a>
 
 </header>

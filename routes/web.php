@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +25,17 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name(
 Route::get('/post_details/{id}', [HomeController::class, 'post_details'])->name('post_details');
 Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
 Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs');
+Route::get('/contactpage', [HomeController::class, 'contactPage'])->name('contactpage');
 
+//CONTACTPAGE
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
+Route::get('/contact/create', [App\Http\Controllers\ContactController::class, 'create'])->name('contact.create');
+Route::post('/contactpage', [ContactController::class, 'sendEmail'])->name('contactpage');
+
+
+Route::get('/contactpage', [ContactController::class, 'contactPage'])->name('contactpage');
+Route::post('/contactpage', [ContactController::class, 'sendEmail'])->name('contactpage');
 
 /*bug heres*/ 
 Route::get('/blogpage', [HomeController::class, 'blogpage'])->name('blogpage')->middleware('auth');
@@ -62,4 +72,6 @@ Route::post('/update_post/{id}', [AdminController::class, 'update_post'])->name(
 // Route::get('/adminhome', 'AdminController@home')->name('admin.adminhome');
 //FAQ
 Route::get('admin/faq', [AdminController::class, 'faq'])->name('faq');
+
+
 

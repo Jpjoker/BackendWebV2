@@ -68,5 +68,6 @@ class HomeController extends Controller
         return view('home.blogpage', compact('postblogs'));
     }
 
+
        
 }
