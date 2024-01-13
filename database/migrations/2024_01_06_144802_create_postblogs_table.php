@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('user_id')->nullable(); // Corrected line
             $table->string('post_status')->nullable();
             $table->string('usertype')->nullable();
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }

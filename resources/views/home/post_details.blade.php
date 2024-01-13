@@ -44,6 +44,7 @@
             <h1><b>{{ $postblog->title }}</b></h1>
             <h4>{{ $postblog->description }}</h4>
             <p>Post by <b>{{ $postblog->name }}</b></p>
+            <p>Posted on <b>{{ $postblog->created_at }}</b></p>
         </article>
     </div>
 

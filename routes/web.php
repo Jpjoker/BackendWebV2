@@ -1,10 +1,23 @@
 <?php
-
+//profile
 use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
+//home
 use App\Http\Controllers\HomeController;
+//admin
 use App\Http\Controllers\AdminController;
+//contact 
 use App\Http\Controllers\ContactController;
+//faq 
+use App\Http\Controllers\FaqCategoryController;
+use App\Http\Controllers\FaqQuestionController;
+
+//forum 
+use App\Http\Controllers\ForumReplyController;
+use App\Http\Controllers\ForumThreadController;    
+
+ // Add this import statement
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,8 +83,40 @@ Route::get('/delete_post/{id}', [AdminController::class, 'delete_post'])->name('
 Route::get('/edit_post/{id}', [AdminController::class, 'edit_post'])->name('edit_post');
 Route::post('/update_post/{id}', [AdminController::class, 'update_post'])->name('update_post');
 // Route::get('/adminhome', 'AdminController@home')->name('admin.adminhome');
+
+
 //FAQ
-Route::get('admin/faq', [AdminController::class, 'faq'])->name('faq');
+// Route::get('admin/faq', [AdminController::class, 'faq'])->name('faq'); 
+//ik wou alles weer in admin doen ma dat lijk mij geen goed idee, leren uit mijn foute natuurlijk
+Route::get('/faq-categories', [FaqCategoryController::class , 'index']);
+Route::get('/faq-questions', [FaqQuestionController::class, 'index']);
+Route::get('/faq-categories/create', [FaqCategoryController::class, 'create']);
+Route::get('/faq-questions/create', [FaqQuestionController::class, 'create']);
+Route::post('/faq-categories', [FaqCategoryController::class, 'store']);
+Route::post('/faq-questions', [FaqQuestionController::class, 'store']);
+Route::get('/faq-categories/{faqCategory}/edit', [FaqCategoryController::class, 'edit']);
+Route::get('/faq-questions/{faqQuestion}/edit', [FaqQuestionController::class, 'edit']);
+Route::patch('/faq-categories/{faqCategory}', [FaqCategoryController::class, 'update']);
+Route::patch('/faq-questions/{faqQuestion}', [FaqQuestionController::class, 'update']) ;
+Route::delete('/faq-categories/{faqCategory}', [FaqCategoryController::class, 'destroy']);
+Route::delete('/faq-questions/{faqQuestion}', [FaqQuestionController::class, 'destroy']);
+
+Route::get('admin/faq/questions', [FaqQuestionController::class, 'index'])->name('admin.faq.questions.index');
+Route::patch('faq-questions/{faq_question}', [FaqQuestionController::class, 'update'])->name('faq-questions.update');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('faq/questions', FaqQuestionController::class);
+});
+
+
+Route::resource('admin/faq/categories', FaqCategoryController::class);
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('faq-categories', FaqCategoryController::class);
+    Route::resource('faq-questions', FaqQuestionController::class);
+    Route::resource('faq/questions', FaqQuestionController::class);
+});
 
 
 
+//FORUM

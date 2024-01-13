@@ -47,4 +47,21 @@ class User extends Authenticatable
     {
         return $this->hasMany(Postblog::class);
     }
+
+    // User.php
+    public function submittedFaqQuestions()
+    {
+        return $this->hasMany(FaqQuestion::class);
+    }
+
+        public function createdFaqQuestions()
+    {
+        return $this->hasMany(FaqQuestion::class, 'created_by');
+    }
+
+    // public function comments()
+    // {
+    //     return $this->hasMany(Comment::class);
+    // }
+
 }

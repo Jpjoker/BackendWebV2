@@ -1,3 +1,7 @@
+<style>
+   
+</style>
+
 <header class="header">
     <nav class="navbar navbar-expand-lg">
         <div class="search-panel">
@@ -73,8 +77,8 @@
                         href="{{ url('admin.homepage') }}" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" class="nav-link tasks-toggle"><i class="icon-new-file"></i><span
                             class="badge dashbg-3">9</span></a>
-                    <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu tasks-list"><a href="#"
-                            class="dropdown-item">
+                    <div aria-labelledby="navbarDropdownMenuLink2" href="{{ url('admin.homepage') }}"
+                        class="dropdown-menu tasks-list"><a href="#" class="dropdown-item">
                             <div class="text d-flex justify-content-between"><strong>Task 1</strong><span>40%
                                     complete</span></div>
                             <div class="progress">
