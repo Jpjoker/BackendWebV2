@@ -8,7 +8,7 @@
             <li><a href="{{ url('/service') }}">Services</a></li>
             <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
             <li><a href="{{ url('/blogpage') }}">Blog</a></li>
-            <li><a href="{{ url('/FAQ') }}">FAQ</a></li>
+            <li><a href="{{ route('faq') }}">FAQ</a></li>
 
             @if (Route::has('login'))
                 @auth

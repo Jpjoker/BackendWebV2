@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\FaqCategory;
+use App\Models\FaqQuestion;
 use App\Models\Postblog;
 class HomeController extends Controller
 {
     public function index()
     {
+        
         if(Auth::id())
         {
             $postblog=Postblog::all();
@@ -34,6 +36,7 @@ class HomeController extends Controller
             }
          
         }
+
 
         
     }
@@ -68,6 +71,23 @@ class HomeController extends Controller
         return view('home.blogpage', compact('postblogs'));
     }
 
+    public function faq()
+    {
+        $faqCategories = FaqCategory::with('questions')->get();
 
+        // Debugging: Dump the categories to see if they are fetched correctly
+       
+    
+        return view('home.faq', compact('faqCategories'));
+    }
+
+    public function submitUserQuestion(Request $request)
+    {
+        // Validate the request...
+
+        // Process the user's question (e.g., save to database, send email, etc.)
+
+        return redirect()->back()->with('message', 'Thank you for your question!');
+    }
        
 }

@@ -10,6 +10,51 @@
     <link rel="stylesheet" href="assests/css/app.css">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+    <style>
+        .faq-category {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .faq-answer {
+            margin-left: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .user-question-form {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-button {
+            padding: 10px 20px;
+            background-color: turquoise;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .alert {
+            color: green;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <!-- Styles -->
@@ -20,15 +65,43 @@
     <!--NAVBAR/HEADER DONE-->
     @include('home.header')
 
+    {{-- Loop through each category and display its questions --}}
 
-    @foreach ($faqs as $faq)
-        <div>
-            <h3>{{ $faq->question }}</h3>
-            <p>{{ $faq->answer }}</p>
+
+
+
+    @foreach ($faqCategories as $category)
+        <div class="faq-category">
+            <h2>{{ $category->name }}</h2>
+            @foreach ($category->questions as $question)
+                <div>
+                    <p class="faq-question">Q: {{ $question->question }}</p>
+                    <p class="faq-answer">A: {{ $question->answer }}</p>
+                </div>
+            @endforeach
         </div>
     @endforeach
 
 
+
+    {{-- User Question Submission Form --}}
+    <div class="user-question-form">
+        <form action="{{ route('user.faq.submit') }}" method="POST">
+            @csrf
+            <textarea type="text" name="user_question" placeholder="Your question" class="form-input"> </textarea>
+            <button type="submit" class="form-button">Submit</button>
+        </form>
+    </div>
+
+    {{-- Display Validation Errors --}}
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
+    {{-- User Question Submission Form --}}
+    {{-- ... existing form code ... --}}
 
     <!--section8 DONE-->
 

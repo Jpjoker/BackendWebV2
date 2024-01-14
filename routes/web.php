@@ -12,10 +12,9 @@ use App\Http\Controllers\ContactController;
 //faq 
 use App\Http\Controllers\FaqCategoryController;
 use App\Http\Controllers\FaqQuestionController;
-
-//forum 
-use App\Http\Controllers\ForumReplyController;
-use App\Http\Controllers\ForumThreadController;    
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\UserQuestionController;
+  
 
  // Add this import statement
 /*
@@ -45,10 +44,20 @@ Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store']
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
 Route::get('/contact/create', [App\Http\Controllers\ContactController::class, 'create'])->name('contact.create');
 Route::post('/contactpage', [ContactController::class, 'sendEmail'])->name('contactpage');
-
-
 Route::get('/contactpage', [ContactController::class, 'contactPage'])->name('contactpage');
 Route::post('/contactpage', [ContactController::class, 'sendEmail'])->name('contactpage');
+
+//faq
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/faqpage', [HomeController::class, 'faqpage'])->name('faqpage');
+
+//faq
+Route::post('/submit-user-question', [FaqController::class, 'submitUserQuestion'])->name('user.faq.submit');
+
+Route::post('/submit-user-question', [UserQuestionController::class, 'store'])->name('user.faq.submit');
+
+
+
 
 /*bug heres*/ 
 Route::get('/blogpage', [HomeController::class, 'blogpage'])->name('blogpage')->middleware('auth');

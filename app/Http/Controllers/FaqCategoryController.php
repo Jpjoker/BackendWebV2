@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\FaqCategory;
 use App\Models\FaqQuestion;
+
 
 class FaqCategoryController extends Controller
 {
@@ -47,4 +49,6 @@ class FaqCategoryController extends Controller
         $faqCategory->delete();
         return redirect()->route('faq-categories.index');
     }
+
+    
 }
