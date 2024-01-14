@@ -38,7 +38,7 @@
 
                         <h4>{{ $postblogs->title }}</h4>
 
-                        <p>Post by <b>{{ $postblogs->name }}</b></p>
+                        <p>Post by <b>{{ $postblogs->user->name }}</b></p>
                         <a href="{{ url('post_details', $postblogs->id) }}"> <button>Read More </button> </a>
                     </article>
                 </div>

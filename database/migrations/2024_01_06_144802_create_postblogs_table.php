@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('postblogs', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('name')->nullable();
 
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('user_id')->nullable(); // Corrected line
             $table->string('post_status')->nullable();
             $table->string('usertype')->nullable();
-            $table->text('message')->nullable();
+    
             $table->timestamps();
         });
     }

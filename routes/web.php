@@ -13,7 +13,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqCategoryController;
 use App\Http\Controllers\FaqQuestionController;
 use App\Http\Controllers\FaqController;
-use App\Http\Controllers\UserQuestionController;
+use App\Http\Controllers\CommentController;
   
 
  // Add this import statement
@@ -54,7 +54,6 @@ Route::get('/faqpage', [HomeController::class, 'faqpage'])->name('faqpage');
 //faq
 Route::post('/submit-user-question', [FaqController::class, 'submitUserQuestion'])->name('user.faq.submit');
 
-Route::post('/submit-user-question', [UserQuestionController::class, 'store'])->name('user.faq.submit');
 
 
 
@@ -129,3 +128,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
 //FORUM
+
+//Comment
+Route::post('/postblog/{postblog_id}/comments', [adminController::class, 'storeComment'])->name('postblog.comments.store');
+Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.delete');
+Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
+     ->name('comment.delete')
+     ->middleware('is_admin');

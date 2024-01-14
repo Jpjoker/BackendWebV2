@@ -54,6 +54,10 @@
             text-align: center;
             margin-bottom: 20px;
         }
+
+        .top {
+            margin-top: 100px;
+        }
     </style>
 </head>
 
@@ -66,40 +70,36 @@
     @include('home.header')
 
     {{-- Loop through each category and display its questions --}}
+    <div class="top">
+        @foreach ($faqCategories as $category)
+            <div class="faq-category">
+                <h2>{{ $category->name }}</h2>
+                @foreach ($category->questions as $question)
+                    <div>
+                        <p class="faq-question">Q: {{ $question->question }}</p>
+                        <p class="faq-answer">A: {{ $question->answer }}</p>
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
 
 
-
-
-    @foreach ($faqCategories as $category)
-        <div class="faq-category">
-            <h2>{{ $category->name }}</h2>
-            @foreach ($category->questions as $question)
-                <div>
-                    <p class="faq-question">Q: {{ $question->question }}</p>
-                    <p class="faq-answer">A: {{ $question->answer }}</p>
-                </div>
-            @endforeach
+        {{-- User Question Submission Form --}}
+        <div class="user-question-form">
+            <form action="{{ route('user.faq.submit') }}" method="POST">
+                @csrf
+                <textarea type="text" name="user_question" placeholder="Your question" class="form-input"> </textarea>
+                <button type="submit" class="form-button">Submit</button>
+            </form>
         </div>
-    @endforeach
 
-
-
-    {{-- User Question Submission Form --}}
-    <div class="user-question-form">
-        <form action="{{ route('user.faq.submit') }}" method="POST">
-            @csrf
-            <textarea type="text" name="user_question" placeholder="Your question" class="form-input"> </textarea>
-            <button type="submit" class="form-button">Submit</button>
-        </form>
+        {{-- Display Validation Errors --}}
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
     </div>
-
-    {{-- Display Validation Errors --}}
-    @if (session('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
-        </div>
-    @endif
-
     {{-- User Question Submission Form --}}
     {{-- ... existing form code ... --}}
 

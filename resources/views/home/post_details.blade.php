@@ -43,11 +43,21 @@
             </div>
             <h1><b>{{ $postblog->title }}</b></h1>
             <h4>{{ $postblog->description }}</h4>
-            <p>Post by <b>{{ $postblog->name }}</b></p>
+            <p>Post by <b>{{ $postblog->user->name }}</b></p>
             <p>Posted on <b>{{ $postblog->created_at }}</b></p>
+
+            <form action="{{ route('postblog.comments.store', $postblog->id) }}" method="POST">
+                @csrf
+                <textarea name="content" placeholder="Plaats een commentaar" required></textarea>
+                <button type="submit">Verzenden</button>
+            </form>
+
+            @foreach ($postblog->comments as $comment)
+                <div>{{ $comment->content }}</div>
+                <!-- Verdere weergave van commentaar -->
+            @endforeach
         </article>
     </div>
-
 
     <!--section8 DONE-->
     @include('home.footer')

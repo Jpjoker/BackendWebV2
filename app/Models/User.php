@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Postblog;
+use App\Models\FaqQuestion;
+use App\Models\Comment;
+use App\Models\FaqCategory;
 
 class User extends Authenticatable
 {
@@ -63,5 +67,11 @@ class User extends Authenticatable
     // {
     //     return $this->hasMany(Comment::class);
     // }
+    public function isAdmin()
+    {
+        return $this->usertype === 'admin'; // Make sure 'usertype' is the correct field
+    }
+    
+    
 
 }

@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Postblog;
 use App\Models\Faq;
-
+use App\Models\Comment;
 
 use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
@@ -132,116 +132,22 @@ class AdminController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
-
+    public function storeComment(Request $request, $postblog_id)
+    {
+        $request->validate([
+            'content' => 'required|string',
+        ]);
+    
+        Comment::create([
+            'postblog_id' => $postblog_id,
+            'user_id' => auth()->id(), // Assumes users are authenticated
+            'content' => $request->input('content'),
+        ]);
+    
+        return back()->with('success', 'Commentaar succesvol geplaatst.');
+    }
+    
+    
 
 
 
