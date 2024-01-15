@@ -39,10 +39,11 @@
                         I am Jurgen Paulus, and the assignment was given by the cool teacher <span
                             style="color: turquoise"> Kevin Felix</span> </b></p><br>
                 <ul class="section1_links">
-                    <li>My Github: https://github.com/Jpjoker/BackendWebV2</li>
-                    <li>My Old: https://github.com/Jpjoker/ScientificalAnimation
-                    </li>
-
+                    <li>My Github: <a href="https://github.com/Jpjoker/BackendWebV2"
+                            target="_blank">https://github.com/Jpjoker/BackendWebV2</a></li>
+                    <li>My Old: <a href="https://github.com/Jpjoker/ScientificalAnimation"
+                            target="_blank">https://github.com/Jpjoker/ScientificalAnimation</a></li>
+                    <li>
                 </ul>
             </div>
         </div>

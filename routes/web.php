@@ -15,6 +15,7 @@ use App\Http\Controllers\FaqQuestionController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StripeController;
 
  // Add this import statement
 /*
@@ -38,6 +39,9 @@ Route::get('/post_details/{id}', [HomeController::class, 'post_details'])->name(
 Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
 Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contactpage', [HomeController::class, 'contactPage'])->name('contactpage');
+
+Route::get('/services', [HomeController::class, 'services'])->name('services');
+
 
 //CONTACTPAGE
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
@@ -164,3 +168,14 @@ Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
     // In routes/web.php
 
     Route::get('/dashboard', [AdminController::class, 'post_page'])->name('dashboard');
+
+
+
+    //stripe api 
+    
+    
+    Route::get('/services', [StripeController::class, 'services']) ->name('services');
+    route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
+    route::post('/checkout', [StripeController::class, 'checkout'])->name('checkout');
+    Route::get('/success', [StripeController::class, 'success'])->name('success');
+    Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');

@@ -90,4 +90,9 @@ class HomeController extends Controller
         return redirect()->back()->with('message', 'Thank you for your question!');
     }
        
+
+    public function services()
+    {
+        return view('home.services');
+    }
 }

@@ -5,7 +5,7 @@
     <nav>
         <ul class="nav_links">
             <li><a href="{{ url('/homepage') }}">Home</a></li>
-            <li><a href="{{ url('/service') }}">Services</a></li>
+            <li><a href="{{ url('/services') }}">Services</a></li>
             <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
             <li><a href="{{ url('/blogpage') }}">Blog</a></li>
             <li><a href="{{ route('faq') }}">FAQ</a></li>
