@@ -130,6 +130,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 //FORUM
 
 //Comment
+
+Route::post('/postblog/{postblog_id}/comment', [CommentController::class, 'store'])
+     ->name('postblog.storeComment');
+
 Route::post('/postblog/{postblog_id}/comments', [adminController::class, 'storeComment'])->name('postblog.comments.store');
 
 Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])

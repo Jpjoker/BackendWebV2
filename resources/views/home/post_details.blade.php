@@ -35,9 +35,11 @@
     <!--NAVBAR/HEADER DONE-->
     @include('home.header')
 
+
     <div style="text-align: center;" class="blog-articles">
         <article>
             <div class="blog-foto">
+                <!--postblog word geplaats-->
                 <img style="padding: 20px; height: 300px; width: 450px; margin : auto;"
                     src="{{ asset('blogimages/' . $postblog->image) }}">
             </div>
@@ -49,24 +51,22 @@
 
 
             {{-- Comments  plaatsen --}}
-            <form action="{{ route('postblog.comments.store', $postblog->id) }}" method="POST">
-                @csrf
-                <textarea name="content" placeholder="Plaats een commentaar" required></textarea>
-                <button type="submit">Verzenden</button>
-            </form>
+            @if (auth()->check())
+                <form action="{{ route('postblog.storeComment', $postblog->id) }}" method="POST">
+                    @csrf
+                    <textarea name="content" placeholder="Plaats een commentaar" required></textarea>
+                    <button type="submit">Verzenden</button>
+                </form>
+            @else
+                <p>Je moet ingelogd zijn om een comment te plaatsen.</p>
+            @endif
 
-            @foreach ($postblog->comments as $comment)
-                <div>{{ $comment->content }}</div>
-                <!-- Verdere weergave van commentaar -->
-            @endforeach
-
-
-            {{-- Comments  delete --}}
-
+            <!-- Weergave van comments -->
             @foreach ($postblog->comments as $comment)
                 <div>
                     <p>{{ $comment->content }}</p>
-                    <!-- Check if the user is authorized to delete the comment -->
+                    <p>Posted by: {{ $comment->user->name }}</p>
+
                     @if (auth()->check() &&
                             (auth()->user()->id == $comment->user_id ||
                                 auth()->user()->isAdmin()))
@@ -75,7 +75,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit"
-                                onclick="return confirm('Are you sure you want to delete this comment?');">Delete
+                                onclick="return confirm('Weet je zeker dat je deze comment wilt verwijderen?');">Delete
                                 Comment</button>
                         </form>
                     @endif

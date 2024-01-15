@@ -134,6 +134,11 @@ class AdminController extends Controller
 
     public function storeComment(Request $request, $postblog_id)
     {
+
+        if (!auth()->check()) {
+            return back()->with('error', 'Je moet ingelogd zijn om een comment te plaatsen.');
+        }
+        
         $request->validate([
             'content' => 'required|string',
         ]);
@@ -148,8 +153,9 @@ class AdminController extends Controller
     }
     
     
+  
 
-
+    
 
 
 

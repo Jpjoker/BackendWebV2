@@ -20,6 +20,8 @@ return new class extends Migration
         
             $table->foreign('postblog_id')->references('id')->on('postblogs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+        
+        
         });
     }
 
