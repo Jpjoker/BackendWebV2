@@ -131,7 +131,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 //Comment
 Route::post('/postblog/{postblog_id}/comments', [adminController::class, 'storeComment'])->name('postblog.comments.store');
-Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.delete');
+
 Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
      ->name('comment.delete')
-     ->middleware('is_admin');
+     ->middleware('is_admin'); // Applying the IsAdmin middleware
+
+
+     Route::get('/admin', function () {
+        // This route is only accessible by admin users
+    })->middleware('admin');

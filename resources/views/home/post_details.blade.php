@@ -46,6 +46,9 @@
             <p>Post by <b>{{ $postblog->user->name }}</b></p>
             <p>Posted on <b>{{ $postblog->created_at }}</b></p>
 
+
+
+            {{-- Comments  plaatsen --}}
             <form action="{{ route('postblog.comments.store', $postblog->id) }}" method="POST">
                 @csrf
                 <textarea name="content" placeholder="Plaats een commentaar" required></textarea>
@@ -56,6 +59,29 @@
                 <div>{{ $comment->content }}</div>
                 <!-- Verdere weergave van commentaar -->
             @endforeach
+
+
+            {{-- Comments  delete --}}
+
+            @foreach ($postblog->comments as $comment)
+                <div>
+                    <p>{{ $comment->content }}</p>
+                    <!-- Check if the user is authorized to delete the comment -->
+                    @if (auth()->check() &&
+                            (auth()->user()->id == $comment->user_id ||
+                                auth()->user()->isAdmin()))
+                        <form action="{{ route('comment.delete', $comment->id) }}" method="POST"
+                            style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                onclick="return confirm('Are you sure you want to delete this comment?');">Delete
+                                Comment</button>
+                        </form>
+                    @endif
+                </div>
+            @endforeach
+
         </article>
     </div>
 
