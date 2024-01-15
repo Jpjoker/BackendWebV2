@@ -153,3 +153,4 @@ Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
     Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
     Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
     Route::get('/faq/{faq_id}', [FaqController::class, 'show'])->name('faq.show');
+    

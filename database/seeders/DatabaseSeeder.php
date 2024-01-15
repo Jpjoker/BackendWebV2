@@ -21,5 +21,14 @@ class DatabaseSeeder extends Seeder
              'password' => bcrypt('Password!321'),
              'usertype' => 'admin',
          ]);
+
+         \App\Models\FaqComment::create([
+            'faq_question_id' => 1,
+            'comment_id' => 1,
+            'content' => 'test',    
+        ]);
+
+
     }
+    
 }

@@ -12,21 +12,35 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('postblogs', function (Blueprint $table) {
+           
             $table->id();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('name')->nullable();
-
-            $table->foreignId('user_id')->nullable()->constrained('users');
-            $table->foreignId('created_by_user_id')->nullable()->constrained('users');
-            $table->foreignId('updated_by_user_id')->nullable()->constrained('users');
-            
-            $table->string('user_id')->nullable(); // Corrected line
+            $table->unsignedBigInteger('user_id')->nullable(); // Zorg ervoor dat dit slechts één keer voorkomt
             $table->string('post_status')->nullable();
             $table->string('usertype')->nullable();
-    
             $table->timestamps();
+           
+           
+           
+           
+            // $table->id();
+            // $table->string('title')->nullable();
+            // $table->text('description')->nullable();
+            // $table->string('image')->nullable();
+            // $table->string('name')->nullable();
+
+            // $table->foreignId('user_id')->nullable()->constrained('users');
+            // $table->foreignId('created_by_user_id')->nullable()->constrained('users');
+            // $table->foreignId('updated_by_user_id')->nullable()->constrained('users');
+            
+            // $table->string('user_id')->nullable(); // Corrected line
+            // $table->string('post_status')->nullable();
+            // $table->string('usertype')->nullable();
+    
+            // $table->timestamps();
         });
     }
 

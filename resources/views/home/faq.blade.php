@@ -83,9 +83,10 @@
                         {{-- @foreach ($question->comments as $comment)
                             <div class="faq-comment">
                                 <p>{{ $comment->content }}</p>
-                                <p>geplaatst door: {{ $comment->user->name }}</p>
+                                <p>geplaatst door: {{ optional($comment->user)->name }}</p>
                             </div>
                         @endforeach --}}
+
 
                         {{-- Commentaar Formulier --}}
                         @if (auth()->check())

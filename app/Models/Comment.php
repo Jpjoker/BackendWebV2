@@ -37,7 +37,7 @@ class Comment extends Model
         // return $this->belongsTo(FaqQuestion::class);
         // }
 
-        // test 2
+        // test 2 best
     public function faqQuestions()
     {
         return $this->belongsToMany(FaqQuestion::class, 'faq_comments', 'comment_id', 'faq_question_id');
@@ -47,5 +47,13 @@ class Comment extends Model
     // {
     //     return $this->belongsToMany(FaqQuestion::class, 'faq_comments');
     // }
+
+    //test4
+  
+    // public function faqQuestion()
+    // {
+    //     return $this->belongsTo(FaqQuestion::class);
+    // }
+
     
 }

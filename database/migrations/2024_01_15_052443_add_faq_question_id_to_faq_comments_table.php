@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('faq_comments', function (Blueprint $table) {
-            $table->dropForeign(['faq_id']);
-            $table->dropColumn('faq_id');
+            $table->unsignedBigInteger('faq_question_id')->nullable();
+            $table->foreign('faq_question_id')->references('id')->on('faq_questions')->onDelete('cascade');
         });
-        
     }
 
     /**

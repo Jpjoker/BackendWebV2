@@ -27,7 +27,7 @@ class FaqController extends Controller
     }
 
 
-
+    // best 
     public function storeComment(Request $request, $faq_id)
     {
         $request->validate([
@@ -40,11 +40,52 @@ class FaqController extends Controller
         $comment->content = $request->content;
         $comment->user_id = auth()->id();
         
-        // Voeg de comment toe aan de FAQ
+
         $faq->comments()->save($comment);
 
         return back()->with('success', 'Commentaar succesvol geplaatst.');
     }
+    // In je FaqController of een relevante controller
+   
+    //test 2
+    // public function storeComment(Request $request, $faqQuestionId)
+    // {
+    //     $validated = $request->validate([
+    //         'content' => 'required|string',
+    //     ]);
+
+    //     $comment = new \App\Models\Comment();
+    //     $comment->content = $request->content;
+    //     $comment->user_id = auth()->id();
+    //     $comment->save();
+
+    //     $faqComment = new \App\Models\FaqComment();
+    //     $faqComment->faq_question_id = $faqQuestionId;
+    //     $faqComment->comment_id = $comment->id;
+    //     $faqComment->save();
+
+    //     return back()->with('success', 'Comment geplaatst');
+    // }
+
+    // test 3
+    // public function storeComment(Request $request, $faqQuestionId)
+    // {
+    //     $request->validate([
+    //         'content' => 'required|string',
+    //     ]);
+    
+    //     $faqQuestion = \App\Models\FaqQuestion::findOrFail($faqQuestionId);
+    //     $comment = new \App\Models\Comment();
+    //     $comment->content = $request->content;
+    //     $comment->user_id = auth()->id();
+        
+    //     // Sla het commentaar direct op de vraag op
+    //     $faqQuestion->comments()->save($comment);
+    
+    //     return back()->with('success', 'Commentaar succesvol geplaatst.');
+    // }
+    
+    
 
 
     public function index()
