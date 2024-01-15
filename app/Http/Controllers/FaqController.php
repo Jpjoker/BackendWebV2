@@ -50,17 +50,17 @@ class FaqController extends Controller
     public function index()
     {
         $faqCategories = FaqCategory::with('questions.comments')->get();
-
         return view('home.faq', compact('faqCategories'));
     }
+    
 
     // test
-    public function showFaqs()
-    {
+    // public function showFaqs()
+    // {
        
-        $faqCategories = FaqCategory::with('questions.comments')->get();
+    //     $faqCategories = FaqCategory::with('questions.comments')->get();
 
-        return view('home.faq', compact('faqCategories'));
-    }
+    //     return view('home.faq', compact('faqCategories'));
+    // }
 
 }

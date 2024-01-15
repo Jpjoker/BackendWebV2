@@ -151,3 +151,5 @@ Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
 
     Route::post('/faq/{faq_id}/comment', [FaqController::class, 'storeComment'])->name('faq.comment.store');
     Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
+    Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
+    Route::get('/faq/{faq_id}', [FaqController::class, 'show'])->name('faq.show');

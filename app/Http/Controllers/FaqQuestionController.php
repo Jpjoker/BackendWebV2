@@ -58,5 +58,7 @@ class FaqQuestionController extends Controller
         $faqQuestion->delete();
         return redirect()->route('faq-questions.index');
     }
+
+    
     
 }
