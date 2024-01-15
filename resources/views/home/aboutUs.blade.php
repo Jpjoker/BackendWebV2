@@ -43,7 +43,10 @@
                             target="_blank">https://github.com/Jpjoker/BackendWebV2</a></li>
                     <li>My Old: <a href="https://github.com/Jpjoker/ScientificalAnimation"
                             target="_blank">https://github.com/Jpjoker/ScientificalAnimation</a></li>
-                    <li>
+                    <li>reference: Chatgpt </li>
+                    <li>reference: Coplite </li>
+                    <li>reference: schooldocumenten </li>
+                    <li>reference: laravel documentantie </li>
                 </ul>
             </div>
         </div>
