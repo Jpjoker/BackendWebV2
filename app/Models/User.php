@@ -25,6 +25,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'birthday',
+        'avatar',
+        'about_me',
     ];
 
     /**
@@ -46,6 +49,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    
 
     public function postblogs()
     {
@@ -69,8 +74,11 @@ class User extends Authenticatable
     // }
     public function isAdmin()
     {
-        // return $this->usertype === 'admin';
-        return true;// Make sure 'usertype' is the correct field
+      
+        
+        return $this->usertype === 'admin';
+        
+        // return true;
     }
     
     

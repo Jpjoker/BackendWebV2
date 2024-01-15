@@ -14,7 +14,7 @@ use App\Http\Controllers\FaqCategoryController;
 use App\Http\Controllers\FaqQuestionController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CommentController;
-  
+use App\Http\Controllers\UserController;
 
  // Add this import statement
 /*
@@ -153,4 +153,14 @@ Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
     Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
     Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
     Route::get('/faq/{faq_id}', [FaqController::class, 'show'])->name('faq.show');
+
+
+    //user 
+
+    Route::get('user/{name}', [UserController::class, 'profile'])->name('profile');
     
+
+    //dashboard
+    // In routes/web.php
+
+    Route::get('/dashboard', [AdminController::class, 'post_page'])->name('dashboard');

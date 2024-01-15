@@ -36,6 +36,16 @@
 
                         <!--dit heb ik extra toegevoegde voor dashboard-->
 
+                        @if (auth()->check() &&
+                                auth()->user()->isAdmin())
+                            <x-dropdown-link :href="route('dashboard')">
+                                <p style="color:white!important"> {{ __('Dashboard') }} </p>
+                            </x-dropdown-link>
+                        @endif
+
+                        {{-- <x-dropdown-link :href="route('dashboard')">
+                            <p style="color:white!important"> {{ __('Dashboard') }} </p>
+                        </x-dropdown-link> --}}
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
