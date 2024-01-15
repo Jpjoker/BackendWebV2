@@ -25,4 +25,24 @@ class FaqQuestion extends Model
     {
         return $this->hasMany(FaqQuestion::class);
     }
+
+    // many to many relationship with faq het is ook voor mijn questions naar comments te kunnen krijgen
+    //     public function comments()
+    // {
+    //     return $this->hasMany(Comment::class);
+    // }
+    
+   // test2
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class, 'faq_comments', 'faq_question_id', 'comment_id');
+    }
+
+    //test3
+    // public function comments()
+    // {
+    //     return $this->belongsToMany(Comment::class, 'faq_comments');
+    // }
+   
+
 }

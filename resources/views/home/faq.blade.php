@@ -78,11 +78,29 @@
                     <div>
                         <p class="faq-question">Q: {{ $question->question }}</p>
                         <p class="faq-answer">A: {{ $question->answer }}</p>
+
+                        {{-- Comments voor deze vraag --}}
+                        {{-- @foreach ($question->comments as $comment)
+                            <div class="faq-comment">
+                                <p>{{ $comment->content }}</p>
+                                <p>Commentaar geplaatst door: {{ optional($comment->user)->name }}</p>
+                            </div>
+                        @endforeach --}}
+
+                        {{-- Commentaar Formulier --}}
+                        @if (auth()->check())
+                            <form action="{{ route('faq.comment.store', $question->id) }}" method="POST">
+                                @csrf
+                                <textarea name="content" placeholder="Plaats een commentaar" required></textarea>
+                                <button type="submit">Plaats Commentaar</button>
+                            </form>
+                        @else
+                            <p>Log in om een comment te plaatsen.</p>
+                        @endif
                     </div>
                 @endforeach
             </div>
         @endforeach
-
 
         {{-- User Question Submission Form --}}
         <div class="user-question-form">
@@ -100,6 +118,7 @@
             </div>
         @endif
     </div>
+
     {{-- User Question Submission Form --}}
     {{-- ... existing form code ... --}}
 

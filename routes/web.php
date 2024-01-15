@@ -144,3 +144,10 @@ Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
      Route::get('/admin', function () {
         // This route is only accessible by admin users
     })->middleware('admin');
+
+
+
+    //faq comment
+
+    Route::post('/faq/{faq_id}/comment', [FaqController::class, 'storeComment'])->name('faq.comment.store');
+    Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
